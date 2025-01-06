@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:05:36 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/06 12:18:55 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/07 00:32:32 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ bool	create_head_node(t_node **head, char *str)
 	if (!head)
 		return (display_error("Head node creation failed"), false);
 	(*head)->value = num;
-	(*head)->order = 0;
 	(*head)->index = 0;
 	(*head)->prev = (*head);
 	(*head)->next = (*head);
@@ -47,7 +46,6 @@ bool	new_node(t_node **head, char *str, int i)
 		return (display_error("New node cretion failed"), false);
 	new->value = num;
 	new->index = i;
-	new->order = 0;
 	new->prev = last;
 	new->next = (*head);
 	last->next = new;
