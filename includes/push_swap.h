@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:08:00 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 14:53:49 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:31:58 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,16 @@ void		lst_new_head(t_node **head, t_node *temp);
 void		index_update(t_node **head);
 void		put_vmin_at_head(t_node **head, t_node **v_min);
 
-/*struct search*/
+/*struct search node*/
 t_node		*search_vmin_node(t_node **head);
+t_node		*search_vmax_node(t_node **head);
+
+/*struct browse count*/
 int			clockwise_target_search(t_node **head, t_node **target);
 int			reverse_target_search(t_node **head, t_node **target);
 int			clockwise_target_insersion(t_node **target, t_node **head);
 int			reverse_target_insersion(t_node **target, t_node **head);
+
+/*struct */
 
 #endif

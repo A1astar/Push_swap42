@@ -6,12 +6,27 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:48:19 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 14:54:53 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:58:56 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/moves_set.h"
 #include "../includes/push_swap.h"
+
+static void move_stack(char **tab, t_node **head)
+{
+	t_node *max;
+	int r_moves;
+	int	rr_moves;
+
+	max = search_vmax_node(head);
+	r_moves = clockwise_target_search(head, &max);
+	rr_moves = reverse_target_search(head, &max);
+	if (rr_moves < r_moves)
+		put_multi_inst(tab, rr_moves, RRB);
+	else
+		put_multi_inst(tab, r_moves, RB);
+}
 
 static void push_inst(char **tab, char stack)
 {
@@ -48,6 +63,8 @@ void	target_pos_inst(char **tab, t_node **target, t_node **dst_head, char stack)
 {
 	if (!tab)
 		return ;
+	if(stack == STACK_A)
+		move_stack(tab, dst_head);
 	if (is_max_value(target, dst_head) == true)
 		push_inst(tab, stack);
 	else if (is_min_value(target, dst_head) == true)

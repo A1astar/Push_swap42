@@ -1,34 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_search.c                                    :+:      :+:    :+:   */
+/*   struct_browse.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/31 13:19:45 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 15:08:09 by alacroix         ###   ########.fr       */
+/*   Created: 2025/01/07 16:31:01 by alacroix          #+#    #+#             */
+/*   Updated: 2025/01/07 16:31:32 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-t_node	*search_vmin_node(t_node **head)
-{
-	t_node	*current;
-	t_node	*min;
-
-	if ((*head)->next == *head)
-		return (*head);
-	min = *head;
-	current = (*head)->next;
-	while (current != *head)
-	{
-		if (current->value < min->value)
-			min = current;
-		current = current->next;
-	}
-	return (min);
-}
 
 int	clockwise_target_search(t_node **head, t_node **target)
 {

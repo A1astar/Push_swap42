@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 16:56:56 by alacroix          #+#    #+#             */
-/*   Updated: 2024/12/24 15:50:47 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/07 15:51:33 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ int	main(int argc, char **argv)
 	if (create_stack(&a_head, argc, argv) == false)
 		return (free_stack(&a_head), 1);
 	dispatcher(&a_head);
+	return (0);
 }
