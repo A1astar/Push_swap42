@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:31:38 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 00:28:22 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/07 12:53:56 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "ft_printf.h"
 
 typedef struct s_list
 {

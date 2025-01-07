@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:10:40 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/02 16:39:28 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/07 12:55:15 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,32 +46,32 @@ static void	size_of_two(t_node **a_head, t_node *next, char stack)
 	else
 		return ;
 }
-static void	size_of_three(t_node **a_head, t_node *middle, t_node *last,
-		char stack)
+
+static void	size_of_three(t_node **a, t_node *b, t_node *c, char stack)
 {
 	long	v0;
 	long	v1;
 	long	v2;
 
-	v0 = (*a_head)->value;
-	v1 = middle->value;
-	v2 = last->value;
+	v0 = (*a)->value;
+	v1 = b->value;
+	v2 = c->value;
 	if (v0 > v1 && v1 < v2 && v2 > v0)
-		swap(a_head, stack);
+		swap(a, stack);
 	else if (v0 > v1 && v1 < v2 && v2 < v0)
-		rotate(a_head, stack);
+		rotate(&b, stack);
 	else if (v0 > v1 && v1 > v2 && v2 < v0)
 	{
-		swap(a_head, stack);
-		reverse_rotate(a_head, stack);
+		swap(a, stack);
+		reverse_rotate(a, stack);
 	}
 	else if (v0 < v1 && v1 > v2 && v2 > v0)
 	{
-		swap(a_head, stack);\
-		rotate(a_head, stack);
+		swap(a, stack);
+		rotate(a, stack);
 	}
 	else if (v0 < v1 && v1 > v2 && v2 < v0)
-		reverse_rotate(a_head, stack);
+		reverse_rotate(a, stack);
 	else
 		return ;
 }

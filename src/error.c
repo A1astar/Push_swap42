@@ -6,13 +6,13 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:06:04 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/06 18:09:26 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/07 11:59:16 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	putstr(char *str)
+static void	putstr(char *str)
 {
 	size_t	i;
 

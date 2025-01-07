@@ -1,15 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   optimisations.c                                    :+:      :+:    :+:   */
+/*   find_optimisation.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:30:13 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/06 19:39:45 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/07 12:08:55 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/moves_set.h"
 #include "../includes/push_swap.h"
 
 static int	len_of_new_str(char *tab)
@@ -21,7 +22,7 @@ static int	len_of_new_str(char *tab)
 	j = 0;
 	while (tab[i])
 	{
-		if (tab[i] == '*')
+		if (tab[i] == SUP)
 			j++;
 		i++;
 	}
@@ -32,7 +33,7 @@ static char	*put_new_tab(char *src)
 {
 	char	*new_tab;
 	int		i;
-	int 	j;
+	int		j;
 	int		size;
 
 	i = 0;
@@ -43,7 +44,7 @@ static char	*put_new_tab(char *src)
 		return (NULL);
 	while (src[i])
 	{
-		if (src[i] != '*')
+		if (src[i] != SUP)
 			new_tab[j++] = src[i];
 		i++;
 	}
@@ -51,26 +52,37 @@ static char	*put_new_tab(char *src)
 	return (new_tab);
 }
 
-char	*find_optimisation_to_b(char *tab)
+static void	change_instructions(char *c1, char *c2, char inst)
 {
-	int		i;
-	int		j;
+	*c1 = inst;
+	*c2 = SUP;
+}
+
+char	*find_optimisations(char *s)
+{
+	int	i;
+	int	j;
 
 	i = 0;
-	while (tab[i])
+	while (s[i])
 	{
 		j = i + 1;
-		while (tab[j])
+		while (s[j])
 		{
-			if (tab[j] == tab[i] + 1)
+			if ((s[j] == RB && s[i] == RA) || (s[j] == RA && s[i] == RB))
 			{
-				tab[i] += 10;
-				tab[j] = '*';
+				change_instructions(&s[i], &s[j], RR);
+				break ;
+			}
+			else if ((s[j] == RRB && s[i] == RRA) || (s[j] == RRA
+					&& s[i] == RRB))
+			{
+				change_instructions(&s[i], &s[j], RRR);
 				break ;
 			}
 			j++;
 		}
 		i++;
 	}
-	return (put_new_tab(tab));
+	return (put_new_tab(s));
 }

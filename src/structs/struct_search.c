@@ -6,47 +6,12 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 13:19:45 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/06 23:56:46 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/07 15:08:09 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-long	search_vmin(t_node **a_head)
-{
-	t_node	*current;
-	t_node	*min;
-
-	if ((*a_head)->next == *a_head)
-		return ((*a_head)->value);
-	min = (*a_head);
-	current = (*a_head)->next;
-	while (current != (*a_head))
-	{
-		if (current->value < min->value)
-			min = current;
-		current = current->next;
-	}
-	return (min->value);
-}
-
-long	search_vmax(t_node **a_head)
-{
-	t_node	*current;
-	t_node	*max;
-
-	if ((*a_head)->next == *a_head)
-		return ((*a_head)->value);
-	max = (*a_head);
-	current = (*a_head)->next;
-	while (current != (*a_head))
-	{
-		if (current->value > max->value)
-			max = current;
-		current = current->next;
-	}
-	return (max->value);
-}
 t_node	*search_vmin_node(t_node **head)
 {
 	t_node	*current;
@@ -64,13 +29,14 @@ t_node	*search_vmin_node(t_node **head)
 	}
 	return (min);
 }
-int	clockwise_search(t_node **a_head, t_node **target)
+
+int	clockwise_target_search(t_node **head, t_node **target)
 {
 	int		i;
 	t_node	*current;
 
 	i = 0;
-	current = *a_head;
+	current = *head;
 	while (current != *target)
 	{
 		current = current->next;
@@ -79,17 +45,57 @@ int	clockwise_search(t_node **a_head, t_node **target)
 	return (i);
 }
 
-int	reverse_search(t_node **a_head, t_node **target)
+int	reverse_target_search(t_node **head, t_node **target)
 {
 	int		i;
 	t_node	*current;
 
 	i = 0;
-	current = *a_head;
+	current = *head;
 	while (current != *target)
 	{
 		current = current->prev;
 		i++;
+	}
+	return (i);
+}
+
+int	clockwise_target_insersion(t_node **target, t_node **head)
+{
+	t_node	*current;
+	int		i;
+
+	current = *head;
+	i = 0;
+	while (1)
+	{
+		if (current->value < (*target)->value
+			&& ((t_node *)current->next)->value >= (*target)->value)
+			break ;
+		current = current->next;
+		i++;
+		if (current == *head)
+			break ;
+	}
+	return (i);
+}
+
+int	reverse_target_insersion(t_node **target, t_node **head)
+{
+	t_node	*current;
+	int		i;
+
+	current = *head;
+	i = 0;
+	while (1)
+	{
+		if (current->value >= (*target)->value
+			&& ((t_node *)current->next)->value < (*target)->value)
+			break ;
+		current = current->next;
+		i++;
+		if (current == *head)
+			break ;
 	}
 	return (i);
 }

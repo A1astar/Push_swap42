@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_utils.c                                     :+:      :+:    :+:   */
+/*   struct_modif.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 12:34:15 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/06 23:53:47 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/07 12:57:33 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ void	index_update(t_node **head)
 
 void	put_vmin_at_head(t_node **head, t_node **v_min)
 {
-	if (clockwise_search(head, v_min) <= reverse_search(head, v_min))
+	if (clockwise_target_search(head, v_min) <= reverse_target_search(head,
+			v_min))
 	{
 		while (*head != *v_min)
 			rotate(head, 'a');

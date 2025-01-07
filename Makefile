@@ -4,11 +4,15 @@ SRCDIR = src
 OBJDIR = obj
 INCDIR = includes
 
-SRC =	main.c error.c arg_parsing.c brut_force.c dispatcher.c utils.c push_rotate_moves.c \
-		reverse_rotate_moves.c swap_moves.c frees_utils.c struct_init.c struct_utils.c \
-		direct_ins.c struct_utils2.c struct_utils3.c radix.c exe_instructions.c sort_stack.c optimisations.c
-SRC := $(addprefix $(SRCDIR)/, $(SRC))
-OBJ := $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
+SRC_MAIN = src/main.c
+SRC_ERR = src/error.c
+SRC_MOVES = src/moves/push_rotate_moves.c src/moves/reverse_rotate_moves.c src/moves/swap_moves.c
+SRC_PARS = src/parsing/arg_parsing.c src/parsing/parsing_utils.c
+SRC_SORT = src/sorting/brut_force.c src/sorting/dispatcher.c src/sorting/exe_instructions.c src/sorting/find_optimisation.c src/sorting/put_instructions.c src/sorting/sort_stack.c src/sorting/sort_stack2.c
+SRC_STRUC = src/structs/struct_free.c src/structs/struct_init.c src/structs/struct_min_max.c src/structs/struct_modif.c src/structs/struct_search.c
+
+SRC = $(SRC_MAIN) $(SRC_ERR) $(SRC_MOVES) $(SRC_PARS) $(SRC_SORT) $(SRC_STRUC)
+OBJ = $(patsubst %.c, $(OBJDIR)/%.o, $(SRC))
 
 LIBFT_DIR := libft
 LIBFT := $(LIBFT_DIR)/libft.a
@@ -29,7 +33,7 @@ $(OBJDIR):
 
 DEP = $(OBJ:.o=.d)
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
+$(OBJDIR)/%.o: %.c | $(OBJDIR)
 	@mkdir -p $(dir $@)
 	$(V)$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
@@ -52,4 +56,6 @@ re: fclean all
 
 .PHONY: all clean fclean re bonus regen
 .DEFAULT_GOAL := all
+
+
 

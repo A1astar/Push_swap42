@@ -6,12 +6,12 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 00:08:05 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 00:15:26 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/07 12:55:39 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MOVES_SET_H
-# define MOVE_SET_H
+# define MOVES_SET_H
 
 # define PA 'a'
 # define PB 'b'
@@ -21,5 +21,6 @@
 # define RRB 'f'
 # define RR 'g'
 # define RRR 'h'
+# define SUP '*'
 
 #endif
