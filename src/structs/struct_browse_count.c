@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_browse.c                                    :+:      :+:    :+:   */
+/*   struct_browse_count.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:31:01 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 16:31:32 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/07 20:12:30 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,22 @@ int	reverse_target_search(t_node **head, t_node **target)
 int	clockwise_target_insersion(t_node **target, t_node **head)
 {
 	t_node	*current;
+	long	current_value;
+	long	next_value;
 	int		i;
 
-	current = *head;
+	current = (*head);
 	i = 0;
+	current_value = 0;
+	next_value = 0;
 	while (1)
 	{
-		if (current->value < (*target)->value
-			&& ((t_node *)current->next)->value >= (*target)->value)
+		i++;
+		current_value = current->value;
+		next_value = ((t_node *)current->next)->value;
+		if(((current_value) > (*target)->value) && ( next_value < (*target)->value))
 			break ;
 		current = current->next;
-		i++;
 		if (current == *head)
 			break ;
 	}
@@ -65,17 +70,22 @@ int	clockwise_target_insersion(t_node **target, t_node **head)
 int	reverse_target_insersion(t_node **target, t_node **head)
 {
 	t_node	*current;
+	long	current_value;
+	long	prev_value;
 	int		i;
 
-	current = *head;
+	current = (*head);
 	i = 0;
+	current_value = 0;
+	prev_value = 0;
 	while (1)
 	{
-		if (current->value >= (*target)->value
-			&& ((t_node *)current->next)->value < (*target)->value)
-			break ;
-		current = current->next;
 		i++;
+		current_value = current->value;
+		prev_value = ((t_node *)current->prev)->value;
+		if ((current_value < (*target)->value) && (prev_value > (*target)->value))
+			break ;
+		current = current->prev;
 		if (current == *head)
 			break ;
 	}
