@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:08:00 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/08 15:36:39 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 16:44:04 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,10 @@ t_node		*search_vmax_node(t_node **head);
 /*struct browse count*/
 int			clockwise_target_search(t_node **head, t_node **target);
 int			reverse_target_search(t_node **head, t_node **target);
-int			clockwise_target_insersion(t_node **target, t_node **head);
-int			reverse_target_insersion(t_node **target, t_node **head);
+int			clockwise_target_rev_ins(t_node **target, t_node **head);
+int			reverse_target_rev_ins(t_node **target, t_node **head);
+int			reverse_target_ins(t_node **target, t_node **head);
+int			clockwise_target_ins(t_node **target, t_node **head);
 
 /*check_combo*/
 void		check_simple_combo(char *c1, char *c2);

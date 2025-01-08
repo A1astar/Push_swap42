@@ -6,15 +6,27 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:19:46 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/08 15:03:44 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 18:05:31 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/moves_set.h"
 #include "../includes/push_swap.h"
 
-static void	push_head_inst(char **tab, t_node **target, t_node **src_head,
-		char stack)
+static void push_head_first(t_node **a_head)
+{
+	t_node *min;
+
+	min = search_vmin_node(a_head);
+	if(clockwise_target_search(a_head, &min) < reverse_target_search(a_head, &min))
+		while(*a_head != min)
+			rotate(a_head, 'a');
+	else
+		while(*a_head != min)
+			reverse_rotate(a_head, 'a');
+}
+
+static void	push_head_inst(char **tab, t_node **target, t_node **src_head)
 {
 	int	r_moves;
 	int	rr_moves;
@@ -22,19 +34,9 @@ static void	push_head_inst(char **tab, t_node **target, t_node **src_head,
 	r_moves = clockwise_target_search(src_head, target);
 	rr_moves = reverse_target_search(src_head, target);
 	if (r_moves < rr_moves)
-	{
-		if (stack == STACK_A)
-			put_multi_inst(tab, r_moves, RA);
-		else
-			put_multi_inst(tab, r_moves, RB);
-	}
+		put_multi_inst(tab, r_moves, RA);
 	else
-	{
-		if (stack == STACK_A)
-			put_multi_inst(tab, rr_moves, RRA);
-		else
-			put_multi_inst(tab, rr_moves, RRB);
-	}
+		put_multi_inst(tab, rr_moves, RRA);
 }
 
 static char	*inst_set_of(t_node **current, t_node **src_head, t_node **dst_head,
@@ -45,7 +47,8 @@ static char	*inst_set_of(t_node **current, t_node **src_head, t_node **dst_head,
 	tab = ft_calloc(1, sizeof(char));
 	if (!tab)
 		return (NULL);
-	push_head_inst(&tab, current, src_head, stack);
+	if (stack == STACK_A)
+		push_head_inst(&tab, current, src_head);
 	target_pos_inst(&tab, current, dst_head, stack);
 	tab = find_optimisations(tab);
 	if (!tab)
@@ -99,12 +102,13 @@ void	sort_stack(t_node **a_head, t_node **b_head, int size)
 		size--;
 	}
 	brut_force(a_head, b_head, size, 'a');
-	/*while (*b_head)
+	while (*b_head)
 	{
 		tab = find_cheapest_inst_set(b_head, a_head, STACK_B);
 		if (!tab)
 			return (display_error("sort stack failed"));
 		execute_inst_set(tab, a_head, b_head);
 		free(tab);
-	}*/
+	}
+	push_head_first(a_head);
 }
