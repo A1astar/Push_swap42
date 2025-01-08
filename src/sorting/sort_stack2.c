@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:48:19 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 19:33:27 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 12:13:27 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,14 @@ void	target_pos_inst(char **tab, t_node **target, t_node **dst_head, char stack)
 {
 	if (!tab)
 		return ;
-	move_stack(tab, dst_head, stack);
 	if (is_max_value(target, dst_head) == true)
+	{
+		move_stack(tab, dst_head, stack);
 		push_inst(tab, stack);
+	}
 	else if (is_min_value(target, dst_head) == true)
 	{
+		move_stack(tab, dst_head, stack);
 		push_inst(tab, stack);
 		if (stack == STACK_A)
 			*tab = put_single_inst(*tab, RB);

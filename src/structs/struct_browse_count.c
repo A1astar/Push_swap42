@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:31:01 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 20:12:30 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 11:59:37 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@ int	reverse_target_insersion(t_node **target, t_node **head)
 	prev_value = 0;
 	while (1)
 	{
-		i++;
 		current_value = current->value;
 		prev_value = ((t_node *)current->prev)->value;
 		if ((current_value < (*target)->value) && (prev_value > (*target)->value))
 			break ;
 		current = current->prev;
+		i++;
 		if (current == *head)
 			break ;
 	}

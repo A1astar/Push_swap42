@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:19:46 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 20:13:37 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 13:08:10 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	sort_stack(t_node **a_head, t_node **b_head, int size)
 		size--;
 	}
 	brut_force(a_head, b_head, size, 'a');
-	while (*b_head)
+	/*while (*b_head)
 	{
 		tab = find_cheapest_inst_set(b_head, a_head, STACK_B);
 		if (!tab)
@@ -107,5 +107,5 @@ void	sort_stack(t_node **a_head, t_node **b_head, int size)
 		execute_inst_set(tab, a_head, b_head);
 		free(tab);
 
-	}
+	}*/
 }

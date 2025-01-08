@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:31:23 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/06 18:36:06 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 12:32:54 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
-	i = 0;;
+	i = 0;
 	while (s[i] != '\0')
 		i++;
 	return (i);

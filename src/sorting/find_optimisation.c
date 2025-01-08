@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:30:13 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 19:55:15 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 13:00:01 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void	change_instructions(char *c1, char *c2, char inst)
 	*c2 = SUP;
 }
 
-char	*find_optimisations(char *s)
+/*char	*find_optimisations(char *s)
 {
 	int	i;
 	int	j;
@@ -80,8 +80,33 @@ char	*find_optimisations(char *s)
 				change_instructions(&s[i], &s[j], RRR);
 				break ;
 			}
-			j++;
 		}
+		i++;
+	}
+	return (put_new_tab(s));
+}*/
+static void	check_combo(char *c1, char *c2)
+{
+	if ((*c1 == RA && *c2 == RB) || (*c1 == RB && *c2 == RA))
+		change_instructions(c1, c2, RR);
+	else if ((*c1 == RRA && *c2 == RRB) || (*c1 == RRB && *c2 == RRA))
+		change_instructions(c1, c2, RRR);
+	else
+		return ;
+}
+
+char	*find_optimisations(char *s)
+{
+	int i;
+	int s_size;
+
+	i = 0;
+	s_size = ft_strlen(s);
+	if (s_size < 2)
+		return (s);
+	while (i < s_size - 1)
+	{
+		check_combo(&s[i], &s[i + 1]);
 		i++;
 	}
 	return (put_new_tab(s));
