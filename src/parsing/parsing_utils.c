@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:29:47 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/06 23:43:15 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:38:25 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ bool	is_a_number(char *str)
 	size_t	i;
 
 	i = 0;
-	if(str[i] == '-')
+	if (str[i] == '-')
 		i++;
-	if(str[i] == '\0')
-		return(false);
+	if (str[i] == '\0')
+		return (false);
 	while (str[i])
 	{
 		if (str[i] > '9' || str[i] < '0')
@@ -50,4 +50,3 @@ bool	is_a_number(char *str)
 	}
 	return (true);
 }
-

@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:17:01 by alacroix          #+#    #+#             */
-/*   Updated: 2024/12/30 16:02:51 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:38:00 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	reverse_rotate(t_node **head, char stack)
 		return ;
 	*head = (*head)->prev;
 	index_update(head);
-	if(stack != '*')
+	if (stack != '*')
 		ft_printf("rr%c\n", stack);
 }
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_optimisation.c                                :+:      :+:    :+:   */
+/*   new_inst_set.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:30:13 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/08 13:00:01 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:36:17 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,53 +52,34 @@ static char	*put_new_tab(char *src)
 	return (new_tab);
 }
 
-static void	change_instructions(char *c1, char *c2, char inst)
+void	change_instructions(char *c1, char *c2, char inst)
 {
 	*c1 = inst;
 	*c2 = SUP;
 }
 
-/*char	*find_optimisations(char *s)
+void	change_multi_inst(char *s, int nbr, char inst)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	while (s[i])
+	while (i < nbr)
 	{
-		j = i + 1;
-		while (s[j])
-		{
-			if ((s[j] == RB && s[i] == RA) || (s[j] == RA && s[i] == RB))
-			{
-				change_instructions(&s[i], &s[j], RR);
-				break ;
-			}
-			else if ((s[j] == RRB && s[i] == RRA) || (s[j] == RRA
-					&& s[i] == RRB))
-			{
-				change_instructions(&s[i], &s[j], RRR);
-				break ;
-			}
-		}
+		s[i] = inst;
 		i++;
 	}
-	return (put_new_tab(s));
-}*/
-static void	check_combo(char *c1, char *c2)
-{
-	if ((*c1 == RA && *c2 == RB) || (*c1 == RB && *c2 == RA))
-		change_instructions(c1, c2, RR);
-	else if ((*c1 == RRA && *c2 == RRB) || (*c1 == RRB && *c2 == RRA))
-		change_instructions(c1, c2, RRR);
-	else
-		return ;
+	while (nbr)
+	{
+		s[i] = SUP;
+		i++;
+		nbr--;
+	}
 }
 
 char	*find_optimisations(char *s)
 {
-	int i;
-	int s_size;
+	int	i;
+	int	s_size;
 
 	i = 0;
 	s_size = ft_strlen(s);
@@ -106,7 +87,8 @@ char	*find_optimisations(char *s)
 		return (s);
 	while (i < s_size - 1)
 	{
-		check_combo(&s[i], &s[i + 1]);
+		check_simple_combo(&s[i], &s[i + 1]);
+		check_multi_combo(&s[i]);
 		i++;
 	}
 	return (put_new_tab(s));

@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:12:40 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/06 11:31:57 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:38:07 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	swap(t_node **head, char stack)
 	long	temp;
 	t_node	*next;
 
-	if(!head ||!(*head) || !(*head)->next)
+	if (!head || !(*head) || !(*head)->next)
 		return ;
 	temp = (*head)->value;
 	next = (*head)->next;
 	(*head)->value = next->value;
 	next->value = temp;
-	if(stack != '*')
+	if (stack != '*')
 		ft_printf("s%c\n", stack);
 }
 

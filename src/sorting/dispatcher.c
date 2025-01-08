@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:19:23 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 00:04:42 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:38:38 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	dispatcher(t_node **a_head)
 {
-	int size;
+	int		size;
 	t_node	*b_head;
 
 	size = ((t_node *)(*a_head)->prev)->index + 1;
 	b_head = NULL;
-	if(size < 6)
+	if (size < 6)
 		brut_force(a_head, &b_head, size, 'a');
 	else
 		sort_stack(a_head, &b_head, size);

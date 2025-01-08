@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:08:00 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 16:31:58 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:36:39 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,6 @@ void		target_pos_inst(char **tab, t_node **target, t_node **dst_head,
 char		*put_single_inst(char *str1, char inst);
 void		put_multi_inst(char **tab, int nbr, char inst);
 
-/*find optimisation*/
-char		*find_optimisations(char *s);
-
 /*exe instructions*/
 void		execute_inst_set(char *tab, t_node **a_head, t_node **b_head);
 
@@ -106,6 +103,13 @@ int			reverse_target_search(t_node **head, t_node **target);
 int			clockwise_target_insersion(t_node **target, t_node **head);
 int			reverse_target_insersion(t_node **target, t_node **head);
 
-/*struct */
+/*check_combo*/
+void		check_simple_combo(char *c1, char *c2);
+void		check_multi_combo(char *s);
+
+/*new inst set*/
+char		*find_optimisations(char *s);
+void		change_multi_inst(char *s, int nbr, char inst);
+void		change_instructions(char *c1, char *c2, char inst);
 
 #endif

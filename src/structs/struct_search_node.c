@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 13:19:45 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 16:45:55 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:40:00 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_node	*search_vmin_node(t_node **head)
 	t_node	*current;
 	t_node	*min;
 
-	if(!*head)
+	if (!*head)
 		return (NULL);
 	if ((*head)->next == *head)
 		return (*head);
@@ -37,7 +37,7 @@ t_node	*search_vmax_node(t_node **head)
 	t_node	*current;
 	t_node	*max;
 
-	if(!*head)
+	if (!*head)
 		return (NULL);
 	if ((*head)->next == *head)
 		return (*head);
@@ -51,4 +51,3 @@ t_node	*search_vmax_node(t_node **head)
 	}
 	return (max);
 }
-

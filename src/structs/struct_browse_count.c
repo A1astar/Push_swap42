@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:31:01 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/08 11:59:37 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:39:46 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ int	clockwise_target_insersion(t_node **target, t_node **head)
 		i++;
 		current_value = current->value;
 		next_value = ((t_node *)current->next)->value;
-		if(((current_value) > (*target)->value) && ( next_value < (*target)->value))
+		if (((current_value) > (*target)->value)
+			&& (next_value < (*target)->value))
 			break ;
 		current = current->next;
 		if (current == *head)
@@ -82,7 +83,8 @@ int	reverse_target_insersion(t_node **target, t_node **head)
 	{
 		current_value = current->value;
 		prev_value = ((t_node *)current->prev)->value;
-		if ((current_value < (*target)->value) && (prev_value > (*target)->value))
+		if ((current_value < (*target)->value)
+			&& (prev_value > (*target)->value))
 			break ;
 		current = current->prev;
 		i++;

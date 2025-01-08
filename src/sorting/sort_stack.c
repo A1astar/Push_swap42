@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:19:46 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/08 13:08:10 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:03:44 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,5 @@ void	sort_stack(t_node **a_head, t_node **b_head, int size)
 			return (display_error("sort stack failed"));
 		execute_inst_set(tab, a_head, b_head);
 		free(tab);
-
 	}*/
 }
