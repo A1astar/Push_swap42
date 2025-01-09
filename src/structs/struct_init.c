@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:05:36 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 00:32:32 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:03:50 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	create_head_node(t_node **head, char *str)
 	if (num_is_int(num) == false)
 		return (display_error("num is not an int"), false);
 	(*head) = malloc(sizeof(t_node));
-	if (!head)
+	if (!*head)
 		return (display_error("Head node creation failed"), false);
 	(*head)->value = num;
 	(*head)->index = 0;

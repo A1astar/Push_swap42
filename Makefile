@@ -9,7 +9,7 @@ SRC_ERR = src/error.c
 SRC_MOVES = src/moves/push_rotate_moves.c src/moves/reverse_rotate_moves.c src/moves/swap_moves.c
 SRC_PARS = src/parsing/arg_parsing.c src/parsing/parsing_utils.c
 SRC_SORT = src/sorting/brut_force.c src/sorting/dispatcher.c src/sorting/execute_moves.c src/sorting/put_moves.c src/sorting/sort_stack.c src/sorting/sort_stack2.c
-SRC_STRUC = src/structs/struct_free.c src/structs/struct_init.c src/structs/struct_min_max.c src/structs/struct_modif.c src/structs/struct_search_node.c src/structs/struct_browse_count.c
+SRC_STRUC = src/structs/struct_free.c src/structs/struct_init.c src/structs/struct_min_max.c src/structs/struct_modif.c src/structs/struct_search_node.c src/structs/struct_browse_count.c src/structs/struct_check.c
 SRC_OPTI = src/optimisation/check_combo.c src/optimisation/new_inst_set.c
 
 SRC = $(SRC_MAIN) $(SRC_ERR) $(SRC_MOVES) $(SRC_PARS) $(SRC_SORT) $(SRC_STRUC) $(SRC_OPTI)

@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   struct_check.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 16:56:56 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/09 17:55:48 by alacroix         ###   ########.fr       */
+/*   Created: 2025/01/09 18:15:20 by alacroix          #+#    #+#             */
+/*   Updated: 2025/01/09 18:22:11 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+bool	stack_is_sorted(t_node *a_head)
 {
-	t_node	*a_head;
+	t_node	*current;
 
-	a_head = NULL;
-	if (argc < 2)
-		return (0);
-	if (create_stack(&a_head, argc, argv) == false)
-		return (free_stack(&a_head), 1);
-	if (stack_is_sorted(a_head))
-		return (free_stack(&a_head), 0);
-	dispatcher(&a_head);
-	return (0);
+	current = a_head;
+	while (current->next != a_head)
+	{
+		if (current->value > ((t_node *)(current)->next)->value)
+			return (false);
+		current = current->next;
+	}
+	return (true);
 }

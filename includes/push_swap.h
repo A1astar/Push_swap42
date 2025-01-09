@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:08:00 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/08 16:44:04 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:21:53 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,10 @@ void		dispatcher(t_node **a_head);
 void		brut_force(t_node **a_head, t_node **b_head, int size, char stack);
 
 /*sort stack*/
-void		sort_stack(t_node **a_head, t_node **b_head, int size);
+void		sort_stack(t_node **a_head, t_node **b_head);
 
 /*sort stack2*/
-void		target_pos_inst(char **tab, t_node **target, t_node **dst_head,
-				char stack);
+void		target_pos_inst(char **tab, t_node **target, t_node **dst_head);
 
 /*put instructions*/
 char		*put_single_inst(char *str1, char inst);
@@ -102,8 +101,9 @@ int			clockwise_target_search(t_node **head, t_node **target);
 int			reverse_target_search(t_node **head, t_node **target);
 int			clockwise_target_rev_ins(t_node **target, t_node **head);
 int			reverse_target_rev_ins(t_node **target, t_node **head);
-int			reverse_target_ins(t_node **target, t_node **head);
-int			clockwise_target_ins(t_node **target, t_node **head);
+
+/*struct check*/
+bool		stack_is_sorted(t_node *a_head);
 
 /*check_combo*/
 void		check_simple_combo(char *c1, char *c2);

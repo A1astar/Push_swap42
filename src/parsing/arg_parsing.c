@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:04:47 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 12:54:14 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:15:49 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ bool	create_stack(t_node **head, int argc, char **argv)
 	if (skip_empty(argc, argv, &arg_index) == false)
 		return (display_error("empty arg(s)"), false);
 	if (put_args(head, argv, &arg_index) == false)
+		return (false);
+	if (!*head)
 		return (false);
 	if (stack_is_valid(*head) == false)
 		return (display_error("duplicate number found"), false);

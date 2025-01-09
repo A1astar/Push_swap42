@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:19:23 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/08 15:38:38 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:19:31 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	dispatcher(t_node **a_head)
 	if (size < 6)
 		brut_force(a_head, &b_head, size, 'a');
 	else
-		sort_stack(a_head, &b_head, size);
+		sort_stack(a_head, &b_head);
 	free_stack(a_head);
 	free_stack(&b_head);
 }

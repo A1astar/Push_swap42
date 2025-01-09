@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:30:13 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/08 15:36:17 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:10:50 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,9 @@ char	*find_optimisations(char *s)
 	int	s_size;
 
 	i = 0;
+	s_size = 0;
+	if (!s)
+		return (NULL);
 	s_size = ft_strlen(s);
 	if (s_size < 2)
 		return (s);
