@@ -7,7 +7,7 @@ OBJDIR_BONUS = obj_bonus
 OBJDIR_SHARED = obj_shared
 INCDIR = includes
 
-SRC_MAIN_BONUS = src/checker/checker_main.c src/checker/checker_exe_inst.c
+SRC_MAIN_BONUS = src/check/checker_main.c src/check/checker_exe_inst.c
 SRC_MAIN = src/main.c
 SRC_BONUS = bonus/src/checker_main.c
 SRC_SORT = src/sorting/brut_force.c src/sorting/dispatcher.c src/sorting/execute_moves.c src/sorting/put_moves.c src/sorting/sort_stack.c src/sorting/sort_stack2.c
