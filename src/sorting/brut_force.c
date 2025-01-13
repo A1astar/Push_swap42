@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:10:40 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/09 18:47:07 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:37:46 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ static void	push_min(t_node **src_head, t_node **dst_head, int size, char stack)
 		push(src_head, dst_head, other);
 		i++;
 	}
-	size_of_three(src_head, ((t_node *)(*dst_head))->next,
-		((t_node *)(*dst_head))->prev, stack);
+	size_of_three(src_head, ((t_node *)(*src_head))->next,
+		((t_node *)(*src_head))->prev, stack);
 	while (i > 0)
 	{
 		push(dst_head, src_head, stack);

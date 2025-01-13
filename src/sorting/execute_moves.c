@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exe_instructions.c                                 :+:      :+:    :+:   */
+/*   execute_moves.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:42:04 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 00:16:42 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/13 16:52:48 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	execute_inst_set(char *tab, t_node **a_head, t_node **b_head)
 		else if (tab[i] == RRB)
 			reverse_rotate(b_head, 'b');
 		else if (tab[i] == RR)
-			rotate_all(a_head, b_head);
+			rotate_all(a_head, b_head, 'a');
 		else if (tab[i] == RRR)
-			reverse_rotate_all(a_head, b_head);
+			reverse_rotate_all(a_head, b_head, 'a');
 		i++;
 	}
 }

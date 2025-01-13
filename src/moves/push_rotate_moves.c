@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:16:56 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/07 12:54:44 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:31:55 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	push(t_node **src_head, t_node **dst_head, char stack)
 	lst_new_head(dst_head, temp);
 	index_update(src_head);
 	index_update(dst_head);
-	ft_printf("p%c\n", stack);
+	if (stack != '*')
+		ft_printf("p%c\n", stack);
 }
 
 void	rotate(t_node **head, char stack)
@@ -36,9 +37,10 @@ void	rotate(t_node **head, char stack)
 		ft_printf("r%c\n", stack);
 }
 
-void	rotate_all(t_node **a_head, t_node **b_head)
+void	rotate_all(t_node **a_head, t_node **b_head, char stack)
 {
 	rotate(a_head, '*');
 	rotate(b_head, '*');
-	ft_printf("rr\n");
+	if (stack != '*')
+		ft_printf("rr\n");
 }

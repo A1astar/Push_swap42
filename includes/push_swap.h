@@ -6,7 +6,7 @@
 /*   By: alacroix <alacroix@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:08:00 by alacroix          #+#    #+#             */
-/*   Updated: 2025/01/09 18:21:53 by alacroix         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:32:34 by alacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,15 @@ void		execute_inst_set(char *tab, t_node **a_head, t_node **b_head);
 /*push rotate moves*/
 void		push(t_node **src_head, t_node **dst_head, char stack);
 void		rotate(t_node **head, char stack);
-void		rotate_all(t_node **a_head, t_node **b_head);
+void		rotate_all(t_node **a_head, t_node **b_head, char stack);
 
 /*reverse rotate moves*/
 void		reverse_rotate(t_node **head, char stack);
-void		reverse_rotate_all(t_node **a_head, t_node **b_head);
+void		reverse_rotate_all(t_node **a_head, t_node **b_head, char stack);
 
 /*swap moves*/
 void		swap(t_node **head, char stack);
-void		swap_all(t_node **a_head, t_node **b_head);
+void		swap_all(t_node **a_head, t_node **b_head, char stack);
 
 /*struc min max*/
 bool		is_min_value(t_node **target, t_node **head);
@@ -113,5 +113,8 @@ void		check_multi_combo(char *s);
 char		*find_optimisations(char *s);
 void		change_multi_inst(char *s, int nbr, char inst);
 void		change_instructions(char *c1, char *c2, char inst);
+
+/*checker exe inst*/
+void		check_execute_inst(t_node **a_head, t_node **b_head, char *tab);
 
 #endif
